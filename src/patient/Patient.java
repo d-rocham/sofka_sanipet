@@ -1,10 +1,77 @@
 package patient;
 
-public abstract class Patient {
-    String type;
-    String historyNumber;
-    String name;
-    String breed;
-    String owner;
-    boolean vaccine_status;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class Patient {
+
+    private PatientType patientType;
+    private String historyNumber;
+    private String name;
+    private String breed;
+    private String owner;
+    private boolean vaccine_status;
+
+
+    public Patient(PatientType patientType, String name, String breed, String owner, boolean vaccine_status) {
+        this.patientType = patientType;
+        this.name = name;
+        this.breed = breed;
+        this.owner = owner;
+        this.vaccine_status = vaccine_status;
+        this.historyNumber = generateHistoryNumber();
+
+    }
+
+    public PatientType getPatientType() {
+        return patientType;
+    }
+
+    public void setPatientType(PatientType patientType) {
+        this.patientType = patientType;
+    }
+
+    public String getHistoryNumber() {
+        return historyNumber;
+    }
+
+    public void setHistoryNumber(String historyNumber) {
+        this.historyNumber = historyNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public boolean isVaccine_status() {
+        return vaccine_status;
+    }
+
+    public void setVaccine_status(boolean vaccine_status) {
+        this.vaccine_status = vaccine_status;
+    }
+
+    private String generateHistoryNumber() {
+        return String.valueOf(ThreadLocalRandom.current().nextInt(1, 999999 + 1));
+    }
+
 }
