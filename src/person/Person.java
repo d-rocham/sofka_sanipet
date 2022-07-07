@@ -1,11 +1,11 @@
 package person;
 
 public abstract class Person {
-    String DNI;
-    String name;
-    String surname;
-    String cellphone;
-    int age;
+    protected String DNI;
+    protected String name;
+    protected String surname;
+    protected String cellphone;
+    protected int age;
 
     public Person(String DNI, String name, String surname, String cellphone, int age) {
         this.DNI = DNI;
