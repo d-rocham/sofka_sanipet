@@ -7,7 +7,7 @@ public class Appointment {
     AppointmentStatus status;
     LocalDateTime datetime;
 
-    public Appointment(AppointmentType type, AppointmentStatus status, String datetime) {
+    public Appointment(AppointmentType type, String datetime) {
         this.type = type;
         this.status = AppointmentStatus.NOT_STARTED;
         this.datetime = LocalDateTime.parse(datetime);
