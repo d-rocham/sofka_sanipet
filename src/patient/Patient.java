@@ -34,10 +34,6 @@ public class Patient {
         return historyNumber;
     }
 
-    public void setHistoryNumber(String historyNumber) {
-        this.historyNumber = historyNumber;
-    }
-
     public String getName() {
         return name;
     }
