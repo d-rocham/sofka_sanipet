@@ -5,6 +5,7 @@ public abstract class Person {
     protected String name;
     protected String surname;
     protected String cellphone;
+
     protected int age;
 
     public Person(String DNI, String name, String surname, String cellphone, int age) {
@@ -15,5 +16,12 @@ public abstract class Person {
         this.age = age;
     }
 
-    // TODO: build constructor
+    public void setAge(int age) {
+        if (age >= 18) {
+            this.age = age;
+        }
+        // TODO: What if age is < 18?
+    }
+
+
 }

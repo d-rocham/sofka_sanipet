@@ -1,15 +1,23 @@
 package patient;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Patient {
 
     private PatientType patientType;
-    private String historyNumber;
+    private final String historyNumber;
     private String name;
     private String breed;
     private String owner;
     private boolean vaccine_status;
+
+    public void setAppointments(Appointment newAppointment) {
+        this.appointments.add(newAppointment);
+    }
+
+    private List<Appointment> appointments;
 
 
     public Patient(PatientType patientType, String name, String breed, String owner, boolean vaccine_status) {
@@ -19,6 +27,7 @@ public class Patient {
         this.owner = owner;
         this.vaccine_status = vaccine_status;
         this.historyNumber = generateHistoryNumber();
+        this.appointments = new ArrayList<Appointment>();
 
     }
 
