@@ -3,11 +3,14 @@ package medicine;
 public class medicine {
     private String name;
     private MedicineType medicineType;
-    private int Quantity;
+    private float quantity;
 
-    public medicine(String name, MedicineType medicineType, int quantity) {
+    private int stock;
+
+    public medicine(String name, MedicineType medicineType, float quantity, int stock) {
         this.name = name;
         this.medicineType = medicineType;
-        Quantity = quantity;
+        this.quantity = quantity;
+        this.stock = stock;
     }
 }

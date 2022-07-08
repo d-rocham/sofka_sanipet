@@ -13,11 +13,12 @@ public class Patient {
     private String owner;
     private boolean vaccine_status;
 
+    private List<Appointment> appointments;
+
     public void setAppointments(Appointment newAppointment) {
         this.appointments.add(newAppointment);
     }
 
-    private List<Appointment> appointments;
 
 
     public Patient(PatientType patientType, String name, String breed, String owner, boolean vaccine_status) {
