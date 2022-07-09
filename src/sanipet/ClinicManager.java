@@ -3,6 +3,7 @@ package sanipet;
 
 import Medicine.Medicine;
 import patient.Appointment;
+import patient.Bill;
 import patient.Patient;
 import person.Employee;
 import person.Owner;
@@ -18,12 +19,15 @@ public class ClinicManager {
     public List <Appointment> appointments;
     public List<Owner> owners;
 
+    public List<Bill> bills;
+
     public ClinicManager() {
         this.patients = new ArrayList<>();
         this.medicines = new ArrayList<>();
         this.personnel = new ArrayList<>();
         this.appointments = new ArrayList<>();
         this.owners = new ArrayList<>();
+        this.bills = new ArrayList<>();
     }
 
     public List<String> getPatientsAsString() {
@@ -56,5 +60,25 @@ public class ClinicManager {
 
         return medicineNames;
 
+    }
+
+    public List<String> getAppointmentsWithCost() {
+        List<String> appointmentsWithCosts = new ArrayList<>();
+
+        for (Appointment appointment: appointments) {
+            appointmentsWithCosts.add(String.format("%s.......... %d", appointment.appointmentName, appointment.cost));
+        }
+
+        return appointmentsWithCosts;
+    }
+
+    public List<String> getMedicinesWithCost() {
+        List<String> medicinesWithCost = new ArrayList<>();
+
+        for (Medicine medicine: medicines) {
+            medicinesWithCost.add(String.format("%s.......... %d", medicine.name, medicine.cost));
+        }
+
+        return medicinesWithCost;
     }
 }

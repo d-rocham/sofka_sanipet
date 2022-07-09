@@ -4,6 +4,7 @@ import patient.Appointment;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class AppointmentsOption extends MenuOption {
 
@@ -67,7 +68,13 @@ public class AppointmentsOption extends MenuOption {
 
         int chosenHour = createAppointmentScanner.optionsScanner(createAppointmentTitle, workingHours);
 
-        Appointment newAppointment = new Appointment(appointmentTypes.get(chosenAppointmentType), appointmentStatus.get(0), workingDays.get(chosenDay), workingHours.get(chosenHour), String.format("%s - %s", sessionPatientsNames.get(chosenPatient), appointmentTypes.get(chosenAppointmentType)));
+        System.out.println("Appointment cost:");
+
+        Scanner costScanner = new Scanner(System.in);
+
+        int appointmentCost = Integer.parseInt(costScanner.nextLine());
+
+        Appointment newAppointment = new Appointment(appointmentTypes.get(chosenAppointmentType), appointmentStatus.get(0), workingDays.get(chosenDay), workingHours.get(chosenHour), String.format("%s - %s", sessionPatientsNames.get(chosenPatient), appointmentTypes.get(chosenAppointmentType)), appointmentCost);
 
         sessionAppointments.add(newAppointment);
 

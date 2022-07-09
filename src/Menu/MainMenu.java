@@ -17,9 +17,11 @@ public class MainMenu {
 
     MedicineOption medicineMenu = new MedicineOption(3, "3. Medicine stock");
 
+    BillingOption billingMenu = new BillingOption(4, "4. Billing");
+
     ExitOption exitApplication = new ExitOption(5, "5. Exit");
 
-    List<MenuOption> menuOptions = Arrays.asList(registerMenu, appointmentsMenu, medicineMenu, exitApplication);
+    List<MenuOption> menuOptions = Arrays.asList(registerMenu, appointmentsMenu, medicineMenu, billingMenu, exitApplication);
 
 
     public void run(ClinicManager currentSession){
@@ -54,10 +56,14 @@ public class MainMenu {
                     break;
                 }
 
+                else if (userChoice.equals("4")){
+                    billingMenu.optionAction(currentSession.appointments, currentSession.getAppointmentsWithCost(), currentSession.medicines, currentSession.getMedicinesWithCost(), currentSession.bills);
+                    break;
+                }
+
                 else if (userChoice.equals("5")) {
                     exitApplication.exitApplication();
                     return;
-
                 }
 
             }

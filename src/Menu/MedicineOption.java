@@ -67,7 +67,11 @@ public class MedicineOption extends MenuOption{
 
         int medicineStock = Integer.parseInt(scanner.nextLine());
 
-        Medicine newMedicine = new Medicine(medicineName, medicineTypes.get(chosenMedicineType), medicineQuantity, medicinePresentations.get(chosenMedicinePresentation), medicineStock);
+        System.out.println("Medicine cost:");
+
+        int medicineCost = Integer.parseInt(scanner.nextLine());
+
+        Medicine newMedicine = new Medicine(medicineName, medicineTypes.get(chosenMedicineType), medicineQuantity, medicinePresentations.get(chosenMedicinePresentation), medicineStock, medicineCost);
 
         sessionMedicines.add(newMedicine);
 

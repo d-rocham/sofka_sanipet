@@ -8,11 +8,14 @@ public class Medicine {
     public String presentation;
     public int stock;
 
-    public Medicine(String name, String  medicineType, float quantity, String presentation, int stock) {
+    public int cost;
+
+    public Medicine(String name, String  medicineType, float quantity, String presentation, int stock, int cost) {
         this.name = name;
         this.medicineType = medicineType;
         this.quantity = quantity;
         this.presentation = presentation;
         this.stock = stock;
+        this.cost = cost;
     }
 }
