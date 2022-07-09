@@ -1,8 +1,9 @@
-package sanipet;
+package Menu;
 import patient.Patient;
 import patient.PatientType;
 import person.Owner;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -38,6 +39,7 @@ public class RegisterOption extends MenuOption {
     }
 
     private void createOwner(List<Owner> sessionOwners) {
+
         Scanner ownerScanner = new Scanner(System.in);
         System.out.println("New owner DNI:");
         String DNI = ownerScanner.nextLine();
@@ -60,38 +62,27 @@ public class RegisterOption extends MenuOption {
     }
 
     private void createPatient(List<Patient> sessionPatients) {
-        Scanner patientScanner = new Scanner(System.in);
-        int patientType = 0;
-        while (patientType != 1 && patientType != 2) {
-            System.out.println("New patient type:");
-            System.out.println("    1. Cat");
-            System.out.println("    2. Dog");
+        MenuScanner createPatientScanner = new MenuScanner();
 
-            patientType = Integer.parseInt(patientScanner.nextLine());
-        }
+        List<String> patientTypes = Arrays.asList("Cat", "Dog");
+        String menuTitle = "Type of patient:";
+
+        int patientType = createPatientScanner.optionsScanner(menuTitle, patientTypes);
+
+        Scanner patientScanner = new Scanner(System.in);
         System.out.println("New patient name:");
         String name = patientScanner.nextLine();
         System.out.println("New patient breed:");
         String breed = patientScanner.nextLine();
         System.out.println("New patient owner:");
         String owner = patientScanner.nextLine();
-        int vaccinationStatusChoice = 3;
-        boolean vaccinationStatus;
-        while (vaccinationStatusChoice != 1 && vaccinationStatusChoice != 2){
-            System.out.printf("Is %s vaccinated?%n", name);
-            System.out.println("    1. Yes");
-            System.out.println("    2. No");
 
-            vaccinationStatusChoice = Integer.parseInt(patientScanner.nextLine());
-        }
-        if (vaccinationStatusChoice == 1) {
-            vaccinationStatus = true;
-        }
-        else {
-            vaccinationStatus = false;
-        }
+        List<String> vaccinationStatusList = Arrays.asList("Yes", "No");
+        menuTitle = "Is the pacient vaccinated ?";
 
-        Patient newPatient = new Patient(patientType == 1 ? PatientType.CAT : PatientType.DOG, name, breed, owner, vaccinationStatus);
+        int vaccinationStatus = createPatientScanner.optionsScanner(menuTitle, vaccinationStatusList);
+
+        Patient newPatient = new Patient(patientType == 0 ? PatientType.CAT : PatientType.DOG, name, breed, owner, vaccinationStatus == 0 ? true : false);
         sessionPatients.add(newPatient);
         System.out.println("Patient successfully created!");
         return;

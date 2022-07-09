@@ -1,15 +1,23 @@
 package patient;
 
-import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 public class Appointment {
-    AppointmentType type;
-    AppointmentStatus status;
-    LocalDateTime datetime;
+    public String type;
+    public String status;
+    public String day;
+    public String hour;
 
-    public Appointment(AppointmentType type, String datetime) {
+    public String appointmentName;
+
+    public Appointment(String type, String status, String day, String hour, String appointmentName) {
         this.type = type;
-        this.status = AppointmentStatus.NOT_STARTED;
-        this.datetime = LocalDateTime.parse(datetime);
+        this.status = status;
+        this.day = day;
+        this.hour = hour;
+        this.appointmentName = appointmentName;
     }
+
+
 }

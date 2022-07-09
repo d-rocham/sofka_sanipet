@@ -1,17 +1,22 @@
-package sanipet;
+package Menu;
+import sanipet.ClinicManager;
+
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 
 public class MainMenu {
-    RegisterOption registerMenu = new RegisterOption(1, "1 .Register Patient");
-    AppointmentsOption appointmentsOption = new AppointmentsOption(2, "2. Appointments");
+
+    /*
+    * Ideally,
+    *
+    * */
+    RegisterOption registerMenu = new RegisterOption(1, "1. Register Patient");
+    AppointmentsOption appointmentsMenu = new AppointmentsOption(2, "2. Appointments");
     ExitOption exitApplication = new ExitOption(5, "5. Exit");
 
-    List<MenuOption> menuOptions = Arrays.asList(registerMenu, appointmentsOption, exitApplication);
+    List<MenuOption> menuOptions = Arrays.asList(registerMenu, appointmentsMenu, exitApplication);
 
 
     public void run(ClinicManager currentSession){
@@ -35,6 +40,12 @@ public class MainMenu {
                     registerMenu.optionAction(currentSession.patients, currentSession.owners);
                     break;
                 }
+
+                else if (userChoice.equals("2")) {
+                    appointmentsMenu.optionAction(currentSession.getPatientsAsString(), currentSession.getAppointmentsNames(),currentSession.appointments);
+                    break;
+                }
+
                 else if (userChoice.equals("5")) {
                     exitApplication.exitApplication();
                     return;

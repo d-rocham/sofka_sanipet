@@ -1,4 +1,4 @@
-package sanipet;
+package Menu;
 
 public class ExitOption extends MenuOption{
     public ExitOption(int optionID, String optionDescription) {

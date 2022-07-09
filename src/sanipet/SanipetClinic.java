@@ -1,6 +1,6 @@
 package sanipet;
 
-import java.util.Scanner;
+import Menu.MainMenu;
 
 
 public class SanipetClinic {

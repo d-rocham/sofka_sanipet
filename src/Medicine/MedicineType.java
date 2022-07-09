@@ -1,4 +1,4 @@
-package medicine;
+package Medicine;
 
 public enum MedicineType {
     PILLS,
