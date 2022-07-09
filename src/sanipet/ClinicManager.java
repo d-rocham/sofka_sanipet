@@ -9,11 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClinicManager {
+
     List<Patient> patients;
     List<medicine> medicines;
     List<Employee> personnel;
 
-    List<Owner> owners;
+    protected List<Owner> owners;
 
     // TODO: how to implement schedule?
 
@@ -23,4 +24,12 @@ public class ClinicManager {
         this.personnel = new ArrayList<>();
         this.owners = new ArrayList<>();
     }
+
+    // Manage patients
+
+
+
+
+
+
 }

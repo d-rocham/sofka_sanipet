@@ -1,16 +1,14 @@
 package sanipet;
 
-import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class SanipetClinic {
     public static void main(String[] args) {
-        ClinicManager clinicSession = new ClinicManager();
+        ClinicManager sessionClinic = new ClinicManager();
+        MainMenu sessionMenu = new MainMenu();
 
-        // Menu
+        sessionMenu.run(sessionClinic);
 
-        System.out.println("Sanipet - Veterinary care center");
-
-
-        // TODO: add CLI & other functionality.
     }
 }
