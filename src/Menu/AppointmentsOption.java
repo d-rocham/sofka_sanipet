@@ -1,11 +1,9 @@
 package Menu;
 
 import patient.Appointment;
-import patient.Patient;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class AppointmentsOption extends MenuOption {
 
@@ -38,7 +36,7 @@ public class AppointmentsOption extends MenuOption {
             }
 
             else {
-                // Filter by day
+                filterAppointments(sessionAppointments);
             }
 
         }
@@ -46,6 +44,7 @@ public class AppointmentsOption extends MenuOption {
     }
 
     void createAppointment(List<String> sessionPatientsNames, List<Appointment> sessionAppointments) {
+
         MenuScanner createAppointmentScanner = new MenuScanner();
 
         String createAppointmentTitle = "Choose a patient to create an appointment for:";
@@ -122,6 +121,11 @@ public class AppointmentsOption extends MenuOption {
                 }
             }
         }
+        return;
+    }
+
+    void filterAppointments(List<Appointment> sessionAppointments) {
+
         return;
     }
 

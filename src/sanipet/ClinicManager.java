@@ -18,8 +18,6 @@ public class ClinicManager {
     public List <Appointment> appointments;
     public List<Owner> owners;
 
-    // TODO: how to implement schedule?
-
     public ClinicManager() {
         this.patients = new ArrayList<>();
         this.medicines = new ArrayList<>();
@@ -46,6 +44,17 @@ public class ClinicManager {
         }
 
         return appointmentsNames;
+
+    }
+
+    public List<String> getMedicinesNames() {
+        List<String> medicineNames = new ArrayList<String>();
+
+        for (Medicine medicine: medicines) {
+            medicineNames.add(medicine.name);
+        }
+
+        return medicineNames;
 
     }
 }

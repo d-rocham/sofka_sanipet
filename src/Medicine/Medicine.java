@@ -1,16 +1,18 @@
 package Medicine;
 
 public class Medicine {
-    private String name;
-    private MedicineType medicineType;
-    private float quantity;
+    public String name;
+    public String medicineType;
+    public float quantity;
 
-    private int stock;
+    public String presentation;
+    public int stock;
 
-    public Medicine(String name, MedicineType medicineType, float quantity, int stock) {
+    public Medicine(String name, String  medicineType, float quantity, String presentation, int stock) {
         this.name = name;
         this.medicineType = medicineType;
         this.quantity = quantity;
+        this.presentation = presentation;
         this.stock = stock;
     }
 }
