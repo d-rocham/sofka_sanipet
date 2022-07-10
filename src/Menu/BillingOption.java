@@ -36,6 +36,11 @@ public class BillingOption extends MenuOption{
                 int addMedicine = billingScanner.optionsScanner(billingScannerTitle, addMedicineOptions);
 
                 if (addMedicine == 0) {
+                    if (sessionMedicines.size() == 0) {
+                        System.out.println("No medicine found. Create medicine prior to adding it to an order,");
+                        return;
+                    }
+
                     billingScannerTitle= "Choose a medicine below. Be aware that medicine with no stock cannot be added to a bill:";
 
                     int selectedMedicineIndex = billingScanner.optionsScanner(billingScannerTitle, medicinesWithCost);
@@ -49,16 +54,19 @@ public class BillingOption extends MenuOption{
 
                         Bill newBill = new Bill(chosenAppointment, sessionMedicines.get(selectedMedicineIndex), billString);
 
-                        // TODO: call newBill.saveBill(); to save bill in filesystem as .txt
-
                         sessionBills.add(newBill);
 
+                        newBill.displayBill();
                     }
-
                 }
-
                 else {
-                    //something else
+                    String billString = appointmentsWithCost.get(chosenAppointmentIndex);
+
+                    Bill newBill = new Bill(chosenAppointment, null, billString);
+
+                    sessionBills.add(newBill);
+
+                    newBill.displayBill();
                 }
 
 

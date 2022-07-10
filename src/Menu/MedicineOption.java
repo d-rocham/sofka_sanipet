@@ -96,6 +96,12 @@ public class MedicineOption extends MenuOption{
     }
 
     void updateMedicineStock(List<String> medicineNames ,List<Medicine> sessionMedicines) {
+        if (sessionMedicines.size() == 0) {
+            System.out.println("No medicine found. Create medicine first in order to update its stock.");
+
+            return;
+        }
+
         MenuScanner updateMedicineMenu = new MenuScanner();
 
         String menuTitle = "Choose a medicine to update its stock: ";
