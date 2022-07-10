@@ -5,6 +5,7 @@ import patient.Appointment;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AppointmentsOption extends MenuOption {
 
@@ -132,6 +133,23 @@ public class AppointmentsOption extends MenuOption {
     }
 
     void filterAppointments(List<Appointment> sessionAppointments) {
+
+        if (sessionAppointments.size() == 0) {
+            System.out.println("No appointments found.");
+            return;
+        }
+
+        MenuScanner updateAppointmentScanner = new MenuScanner();
+
+        String title = "Choose day to filter by:";
+
+        int chosenDay = updateAppointmentScanner.optionsScanner(title, workingDays);
+
+        List<Appointment> filteredAppointments = sessionAppointments.stream().filter(appointment -> appointment.day == workingDays.get(chosenDay)).collect(Collectors.toList());
+
+        for (Appointment appointment: filteredAppointments) {
+            System.out.println(appointment.appointmentName);
+        }
 
         return;
     }
